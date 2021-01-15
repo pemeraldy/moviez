@@ -1,6 +1,6 @@
 <template>
   <header
-    class="p-4 flex flex-wrap md:flex-nowrap shadow-xl text-gray-300 sticky bg-gray-800 top-0"
+    class="p-4 z-10 flex flex-wrap md:flex-nowrap shadow-xl text-gray-300 sticky bg-gray-800 top-0"
   >
     <a href="#" class="p-2 w-24 font-bold">logo</a>
 

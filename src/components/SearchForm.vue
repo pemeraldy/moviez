@@ -7,7 +7,7 @@
     />
 
     <button
-      class=" absolute right-0 outline-none focus:outline-none w-16 h-full  bg-gray-600 text-white"
+      class=" absolute right-0 outline-none focus:outline-none w-16 h-full bg-gray-600 text-white"
     >
       <i class="fas fa-search"></i>
     </button>
