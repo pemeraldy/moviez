@@ -1,24 +1,27 @@
 <template>
-  <div class=" bg-gray-700 min-h-screen">
+  <div class=" bg-blue-50 min-h-screen overflow-x-hidden text-gray-900">
+    <!-- navigation -->
     <app-header />
-    <!-- App contents -->
-    <div class=" w-full md:px-64">
-      <app-hero />
-      <movie-collections />
-    </div>
+    <router-view class="flex-1" />
+
+    <Footer class="self-end" />
   </div>
 </template>
 
 <script>
 import AppHeader from "@/components/AppHeader";
-import AppHero from "@/components/AppHero";
-import MovieCollections from "./components/MovieCollections.vue";
+import Footer from "./components/Footer.vue";
+
 export default {
   name: "App",
   components: {
     AppHeader,
-    AppHero,
-    MovieCollections,
+    Footer,
+  },
+  data() {
+    return {
+      coll: 5,
+    };
   },
 };
 </script>
