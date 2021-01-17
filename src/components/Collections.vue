@@ -1,10 +1,10 @@
 <template>
-  <div class="px-4 mt-16 mb-10 md:mt-0">
-    <h2 class="text-gray-200 font-normal md:mb-8 md:text-3xl">
+  <div>
+    <h2 class="text-gray-300 font-bold md:mb-8 md:text-3xl">
       {{ collectionTitle }}
     </h2>
     <div
-      class="mt-2 p-4 flex space-x-3 md:space-x-6 overflow-x-scroll remove-scrollbar "
+      class="flex mt-6 space-x-3 md:space-x-16 overflow-x-scroll remove-scrollbar"
     >
       <slot></slot>
     </div>
@@ -12,11 +12,11 @@
 </template>
 
 <script>
+// import { onMounted, ref } from "vue";
+
 export default {
   props: ["collectionTitle"],
-  setup(props) {
-    console.log(props);
-  },
+  components: {},
 };
 </script>
 
