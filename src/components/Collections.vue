@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-gray-300 font-bold md:mb-8 md:text-3xl">
+    <h2 class=" font-bold md:mb-8 md:text-3xl">
       {{ collectionTitle }}
     </h2>
     <div
