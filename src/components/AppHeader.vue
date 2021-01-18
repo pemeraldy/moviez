@@ -13,6 +13,11 @@
         class="w-full md:w-auto rounded-md text-center"
         >Collections</router-link
       >
+      <router-link
+        to="/collection/3"
+        class="w-full md:w-auto rounded-md text-center"
+        >Collection Page</router-link
+      >
       <a href="#" class="w-full md:w-auto rounded-md text-center">Movies</a>
 
       <router-link
