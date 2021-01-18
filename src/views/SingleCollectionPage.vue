@@ -9,11 +9,11 @@
             Name Of Collection - Selected Movie in here
           </h1>
         </div>
-        <div class="bg-red-500 flex-auto space-y-4 p-4 overflow-auto ">
+        <div class="bg-red-500 flex-auto p-4 overflow-auto ">
           <h1 class=" hidde md:bg-block text-2xl text-gray-200 font-bold">
             Name Of Collection <span class=" text-xs"> . 24 days ago</span>
           </h1>
-          <div class="hidde md:block">
+          <div class="hidde space-y-4 md:block">
             <collection-card v-for="l in 14" :key="l">
               <!-- <router-link class="block" tag="div" to="#"> -->
               <template v-slot:image>
