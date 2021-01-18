@@ -2,18 +2,36 @@
   <header
     class="p-4 z-10 flex flex-wrap md:flex-nowrap shadow-xl text-gray-300 sticky bg-gray-800 top-0"
   >
-    <a href="#" class="p-2 w-24 font-bold">logo</a>
+    <router-link to="/" class="p-2 w-24 font-bold">logo</router-link>
 
     <nav
       :class="{ hidden: !isOpen }"
       class="w-full md:flex md:w-auto flex space-y-6 md:space-y-0 md:space-x-6 flex-col md:flex-row mt-4 md:mt-0 order-1 md:order-none md:justify-end md:items-center md:ml-auto"
     >
-      <a href="#" class="w-full md:w-auto rounded-md text-center"
-        >Collections</a
+      <router-link
+        to="/collections"
+        class="w-full md:w-auto rounded-md text-center"
+        >Collections</router-link
+      >
+      <router-link
+        to="/collection/3"
+        class="w-full md:w-auto rounded-md text-center"
+        >Collection Page</router-link
       >
       <a href="#" class="w-full md:w-auto rounded-md text-center">Movies</a>
 
-      <a href="#" class="w-full md:w-auto rounded-md text-center">Login</a>
+      <router-link
+        tag="a"
+        to="/login"
+        class="w-full md:w-auto rounded-md text-center"
+        >Logn</router-link
+      >
+      <router-link
+        tag="a"
+        to="/signup"
+        class="w-full md:w-auto rounded-md text-center"
+        >Sign up</router-link
+      >
       <a href="#" v-if="true" class=" w-full md:w-auto rounded-md text-center"
         >Logout</a
       >
