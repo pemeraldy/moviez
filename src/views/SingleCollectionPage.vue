@@ -10,7 +10,9 @@
           </h1>
         </div>
         <div class="bg-red-500 flex-auto p-4 overflow-auto ">
-          <h1 class=" hidde md:bg-block text-2xl text-gray-200 font-bold">
+          <h1
+            class=" hidde md:bg-block text-xl md:text-2xl mb-3 text-gray-200 font-bold"
+          >
             Name Of Collection <span class=" text-xs"> . 24 days ago</span>
           </h1>
           <div class="hidde space-y-4 md:block">
@@ -29,7 +31,7 @@
                 <div class="flex flex-col justify-between">
                   <h1 class="font-bold">Movie Name asknclknalcnkas</h1>
                   <p class="mb-4 font-sans text-gray-400">2019</p>
-                  <p>3k like . <span>24 days ago</span></p>
+                  <p class="text-sm">3k like . <span>24 days ago</span></p>
                 </div>
               </template>
               <!-- </router-link> -->

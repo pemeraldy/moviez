@@ -2,7 +2,7 @@
   <div class=" bg-blue-50 min-h-screen overflow-x-hidden text-gray-900">
     <!-- navigation -->
     <app-header />
-    <router-view class="flex-1" />
+    <router-view />
 
     <Footer class="self-end" />
   </div>
