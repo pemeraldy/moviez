@@ -1,21 +1,22 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-// import firebaseServices from './firebase'
+import firebaseServices from './firebase'
 
-import Vuelidate from 'vuelidate'
+import store from './store'
 
 
-const app = createApp(App)
-app.use(Vuelidate)
-app.use(router).mount('#app')
+let app 
 
-// firebaseServices.auth.onAuthStateChanged((user)=>{
-//     console.log('Hello')
-//     if(!app){
-//     }
-//     if(user){
-//       store.dispatch('fetchUserProfile', user)
-//     }
-//   })
+firebaseServices.auth.onAuthStateChanged((user)=>{
+    if(!app){
+        app = createApp(App)
+        app.use(router).use(store).mount('#app')
+        console.log('Hello')
+    }
+    if(user){
+    //   store.dispatch('fetchUserProfile', user)
+    console.log(user)
+    }
+  })
 
