@@ -9,37 +9,50 @@
         </h1>
         <form @submit.prevent class="w-full  h-full mt-6">
           <input
+            class=" w-full rounded-md p-4 mb-4"
+            placeholder="Email"
+            type="email"
+            v-model="userCredentials.email"
+          />
+          <input
             class=" w-full mb-4 rounded-md p-4"
             placeholder="Username"
             type="text"
-          />
-          <input
-            class=" w-full rounded-md p-4 mb-4"
-            placeholder="Email"
-            type="text"
-            v-model="userData.email"
+            v-model="userCredentials.username"
           />
 
           <input
             class=" w-full rounded-md p-4 mb-4"
             placeholder="Password"
-            type="text"
-            v-model="userData.password"
+            type="password"
+            v-model="userCredentials.password"
           />
 
           <input
             class=" w-full rounded-md p-4 mb-4"
-            placeholder="Comfirm password"
-            type="text"
+            placeholder="Confirm Password"
+            type="password"
+            v-model="userCredentials.confirmed"
           />
-
           <button
+            :disabled="!validator.isValid"
             @click="signUp"
             type="submit"
-            class="w-full text-center rounded-md text-red-100 font-bold uppercase bg-red-500 p-4 tracking-wide"
+            class="disabled:opacity-50 w-full text-center rounded-md text-red-100 font-bold uppercase bg-red-500 p-4 tracking-wide"
           >
-            Sign up
+            {{ buttonText }}
           </button>
+          <div class="flex">
+            <button
+              type="submit"
+              class="w-full mt-3 text-center rounded-md text-red-100 font-bold uppercase bg-red-500 p-4 tracking-wide"
+            >
+              Google
+            </button>
+          </div>
+          <debugger>
+            {{ validator.errors }}
+          </debugger>
         </form>
       </div>
       <div
@@ -55,23 +68,65 @@
 import { ref } from "vue";
 // import firebase from "firebase";
 import firebaseServices from "../firebase";
-
+import Debugger from "@/lib/Debugger";
+import makeValidator, { isEmail, minLength } from "@/lib/validator";
+const email = {
+  minLength: minLength(6),
+  isEmail,
+};
+const username = {
+  minLength: minLength(6),
+};
+const password = {
+  minLength: minLength(5),
+};
 export default {
+  components: {
+    Debugger,
+  },
   setup() {
-    const userData = ref({
+    const buttonText = ref("Sign up");
+    const userCredentials = ref({
       email: "",
+      username: "",
       password: "",
+      confirmed: "",
     });
+
+    const validator = makeValidator(userCredentials, {
+      validations: {
+        email,
+        password,
+        username,
+        confirmed: {
+          passwordConfirmed: {
+            validate: (v) =>
+              new RegExp(`^${userCredentials.value.password}$`).test(v),
+            message: "passwords do not match",
+          },
+        },
+      },
+    });
+
     const signUp = async () => {
-      console.log("clicked");
-      const { email, password } = userData.value;
+      const originalBtnText = buttonText.value;
+      buttonText.value = "Processing...";
+      console.log("creating account");
+      const { email, password } = userCredentials.value;
       try {
-        await firebaseServices.auth.createUserWithEmailAndPassword(
+        const {
+          user,
+        } = await firebaseServices.auth.createUserWithEmailAndPassword(
           email,
           password
         );
+        await firebaseServices.userCollections
+          .doc(user.uid)
+          .set(userCredentials.value);
         console.log(": user created successfuly !!!");
+        buttonText.value = originalBtnText;
       } catch (error) {
+        buttonText.value = originalBtnText;
         let errorCode = error.code;
         let errorMessage = error.message;
         console.log(errorMessage, errorCode);
@@ -79,8 +134,10 @@ export default {
     };
 
     return {
-      userData,
+      buttonText,
+      userCredentials,
       signUp,
+      validator,
     };
   },
 };

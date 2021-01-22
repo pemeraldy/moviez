@@ -19,17 +19,17 @@
             class=" w-full rounded-md p-4 mb-4"
             placeholder="Password"
             v-model="userCredentials.password"
-            type="text"
+            type="password"
           />
 
           <button
             :disabled="!validator.isValid"
             @click="login"
-            class="disabled:opacity-50 w-full flex justify-center text-center rounded-md text-red-100 font-bold uppercase bg-red-500 p-4 tracking-wide"
+            class="disabled:opacity-50 w-full r text-center rounded-md text-red-100 font-bold uppercase bg-red-500 p-4 tracking-wide"
             type="submit"
           >
             {{ buttonText }}
-            <!-- <spinner :isLoading="spin" /> -->
+            <spinner :isLoading="spin" />
           </button>
 
           <div class="mt-3 text-red-300 text-center" v-if="errorMessage">
@@ -47,18 +47,21 @@
 </template>
 
 <script>
+import Spinner from "@/components/Spinner";
 import { ref } from "vue";
 import makeValidator, { isEmail, minLength } from "@/lib/validator";
 import firebaseServices from "../firebase";
+
 const email = {
-  minLength: minLength(2),
+  minLength: minLength(6),
   isEmail,
 };
 const password = {
-  minLength: minLength(3),
+  minLength: minLength(5),
 };
 
 export default {
+  components: { Spinner },
   setup() {
     const spin = ref(false);
     const errorMessage = ref("");
@@ -66,7 +69,7 @@ export default {
     const userCredentials = ref({
       email: "",
       password: "",
-      confirmPassword: "",
+      // confirmPassword: "",
     });
 
     const validator = makeValidator(userCredentials, {
@@ -76,19 +79,27 @@ export default {
     const login = async () => {
       const originalBtnText = buttonText.value;
       buttonText.value = "Processing...";
+      spin.value = true;
       const { email, password } = userCredentials.value;
+
       try {
-        await firebaseServices.auth.signInWithEmailAndPassword(email, password);
+        const { user } = await firebaseServices.auth.signInWithEmailAndPassword(
+          email,
+          password
+        );
         console.log("User Signed In");
         buttonText.value = originalBtnText;
+        spin.value = false;
+        console.log(user);
       } catch (error) {
         spin.value = false;
         console.log(error);
-        errorMessage.value = "Bad network please try again...";
+        errorMessage.value = error.message;
+        buttonText.value = originalBtnText;
         setTimeout(() => {
           console.log(error.code, "cleaned");
           errorMessage.value = "";
-        }, 2000);
+        }, 3000);
       }
     };
 

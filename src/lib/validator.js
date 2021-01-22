@@ -1,6 +1,6 @@
 import { computed, reactive } from "vue";
 
- export const  isEmail = {
+export const  isEmail = {
     validate: (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v),
     message: "please provide a valid email address",
 }

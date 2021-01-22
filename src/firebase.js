@@ -16,34 +16,15 @@ var firebaseConfig = {
   const auth = firebase.auth()
   const db = firebase.firestore()
 
-//   const signUp = async () => {
-//     console.log("clicked");
-//     try {
-//       await firebase
-//         .auth()
-//         .createUserWithEmailAndPassword(
-//           'mai@gmail.com',
-//           '123456789'
-//         );
-//       console.log(": user created successfuly !!!");
-//     } catch (error) {
-//       let errorCode = error.code;
-//       let errorMessage = error.message;
-//       console.log(errorMessage, errorCode);
-//     }
-//   };
-
-//   signUp()
   // collection references
-  const usersCollection = db.collection('users')
-  const movieListCollection = db.collection('movielists')
-  const moviesCollection  = db.collection('movies')
-
+  const userCollections = db.collection('users')
+  const movieListCollections = db.collection('movie_collections')
+  const movieCollections  = db.collection('movies')
 
     export default {
         auth,
         db,
-        usersCollection,
-        movieListCollection,
-        moviesCollection
+        userCollections,
+        movieListCollections,
+        movieCollections
       }

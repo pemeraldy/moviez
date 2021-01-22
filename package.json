@@ -15,6 +15,7 @@
     "postcss": "7",
     "slick-carousel": "^1.8.1",
     "vue": "^3.0.0",
+    "vue-json-tree-view": "^2.1.6",
     "vue-router": "^4.0.0-0",
     "vue3-carousel": "^0.1.11",
     "vuelidate": "^0.7.6"
@@ -43,7 +44,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-debugger": "warn"
+    }
   },
   "browserslist": [
     "> 1%",
