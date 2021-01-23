@@ -4,22 +4,22 @@
   >
     <div
       class="w-full h-full z-10 absolute inset-0 bg-no-repeat bg-cover"
-      style="background-image: url(https://picsum.photos/1200/720); background-color:#1f1f1f9e; background-blend-mode:multiply"
+      :style="
+        `background-image: url(${url}); background-color:#1f1f1f9e; background-blend-mode:multiply`
+      "
     ></div>
     <!-- Searh form -->
-    <div
-      class="w-full md:w-2/5 z-20 rounded-3xl md:-bottom-0 md:-top-52 overflow-hidden shadow-lg "
-    >
-      <search-form />
-    </div>
+
+    <slot></slot>
   </div>
 </template>
 
 <script>
-import SearchForm from "./SearchForm";
+// import SearchForm from "./SearchForm";
 export default {
+  props: ["url"],
   components: {
-    SearchForm,
+    // SearchForm,
   },
 };
 </script>

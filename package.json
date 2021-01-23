@@ -11,16 +11,21 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "9",
     "core-js": "^3.6.5",
+    "firebase": "^8.2.3",
     "postcss": "7",
     "slick-carousel": "^1.8.1",
     "vue": "^3.0.0",
+    "vue-json-tree-view": "^2.1.6",
     "vue-router": "^4.0.0-0",
-    "vue3-carousel": "^0.1.11"
+    "vue3-carousel": "^0.1.11",
+    "vuelidate": "^0.7.6",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
@@ -41,7 +46,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-debugger": "warn"
+    }
   },
   "browserslist": [
     "> 1%",

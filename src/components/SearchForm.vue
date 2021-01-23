@@ -4,6 +4,7 @@
       class=" block px-4 py-2.5 focus:outline-none text-sm flex-1 h-full"
       placeholder="Search movie Collection, Movies, Tv...  "
       type="text"
+      v-model="searchTerm"
     />
 
     <button
@@ -15,7 +16,16 @@
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+export default {
+  setup() {
+    let searchTerm = ref("");
+
+    return {
+      searchTerm,
+    };
+  },
+};
 </script>
 
 <style></style>

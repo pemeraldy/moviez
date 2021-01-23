@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import CollectionsPage from '../views/CollectionsPage.vue'
 import SingleCollectionPage from '../views/SingleCollectionPage.vue'
+import MovieDetails from '../views/MovieDetails.vue'
+import Search from '../views/Search.vue'
 
 import  authRoute from '../Auth/routes.auth'
 
@@ -10,6 +12,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  },
+  {
+    path: '/movie/:id',
+    name: 'movie',
+    component: MovieDetails
   },
   {
     path: '/collections',
