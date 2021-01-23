@@ -1,5 +1,11 @@
 <template>
-  <app-hero />
+  <app-hero url="https://picsum.photos/1200/720">
+    <div
+      class="w-full md:w-2/5 z-20 rounded-3xl md:-bottom-0 md:-top-52 overflow-hidden shadow-lg "
+    >
+      <search-form />
+    </div>
+  </app-hero>
   <!-- App contents -->
   <div class="container mx-auto mt-6 mb-4">
     <div class="  p-3.5 md:w-3/4 mx-auto">

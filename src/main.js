@@ -12,10 +12,10 @@ firebaseServices.auth.onAuthStateChanged((user)=>{
     if(!app){
         app = createApp(App)
         app.use(router).use(store).mount('#app')
-        console.log('Hello')
     }
     if(user){
     //   store.dispatch('fetchUserProfile', user)
+    // firebaseServices.auth.signOut()
     console.log(user)
     }
   })

@@ -3,13 +3,16 @@ export const authState = {
     state:{
         user:{
             id:'',
-            isLoggedIn: false,            
+            isLoggedIn: false,
+            movieCollections:[],                     
         }
     },
-    mutations:{},
+    mutations:{
+        setIsLoggedIn:(state, payload) =>state.user.isLoggedIn = payload
+    },
     actions:{
         signIn(state){
-            console.log(state)
+            console.log(state, 'SignIN')
         },
         signOut(state){            
             console.log(state)
