@@ -7,29 +7,46 @@
     </div>
   </app-hero>
   <!-- App contents -->
-  <div class="container mx-auto mt-20">
-    <collections collectionTitle="Popular Collections" class="ml-8">
-      <movie-collection class="w-11/12 md:w-2/6" v-for="n in 12" :key="n" />
-    </collections>
-    <collections collectionTitle="Popular Movies" class="ml-8 mt-16">
-      <movie-collection class="w-11/12 md:w-2/6" v-for="n in 3" :key="n" />
-    </collections>
+  <div class="container mx-auto md:px-32 mt-20 md:min-h-screen">
+    <div class="w-full bg-red-300">
+      <h1 class=" text-lg font-bold mb-4">Movie Collections</h1>
+      <div class="w-full flex space-x-10">
+        <div>
+          <div class="w-24 h-24">
+            <img
+              class="w-full"
+              src="https://picsum.photos/1200/720"
+              alt="img"
+            />
+          </div>
+          <!-- end of image -->
+          <!-- contents -->
+          <div class="w-100">
+            <div>Collection Title</div>
+            <div>A description of the collection</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import AppHero from "@/components/AppHero";
-import Collections from "@/components/Collections.vue";
+// import CollectionList from "@/components/CollectionList.vue";
 import SearchForm from "@/components/SearchForm.vue";
-import MovieCollection from "@/components/MovieCollection.vue";
+// import CollectionThumbnail from "@/components/CollectionThumbnail.vue";
 
 export default {
   name: "App",
   components: {
     AppHero,
     SearchForm,
-    Collections,
-    MovieCollection,
+    // CollectionList,
+    // CollectionThumbnail,
+  },
+  async mounted() {
+    this.$store.dispatch("getMovieCollections");
   },
   data() {
     return {

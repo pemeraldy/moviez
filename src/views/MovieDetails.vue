@@ -5,27 +5,11 @@
       <h2 class="text-gray-50 font-semibold hidden mb-5 md:hidden  text-2xl ">
         The Name of Movie
       </h2>
-    </div>
-    <!-- <div
-      class="w-full md:w-2/5 z-20 rounded-3xl md:-bottom-0 md:-top-52 overflow-hidden shadow-lg "
-    >
-      
-      
-    </div> -->
+    </div>    
   </app-hero>
   <div class="container mx-auto">
     <div class="flex flex-col md:flex-row  w-full  bg-yelow-500 pb-10 ">
-      <div class=" w-full md:w-1/3 flex-none px-3 h-40 md:h-auto   md:pl-10  ">
-        <div
-          class=" h-72 md:h-99 rounded-md shadow-2xl relative -top-36 md:-top-72 z-50 overflow-hidden "
-        >
-          <img
-            class=" object-cover w-full h-full object-center "
-            src="https://i.picsum.photos/id/10/1200/720.jpg?hmac=5O3xfmBWFlHBcYsa5EODSTXaSWnCCauqZQSO4fEWTuQ"
-            alt=" movie cover"
-          />
-        </div>
-      </div>
+      
       <div class=" flex-auto px-5 md:px-24 pt-10">
         <h2 class="text-gray-700 font-bold mb-5  text-2xl ">
           The Name of Movie
@@ -82,8 +66,8 @@
               7.1
             </h1>
           </div>
-          <div class="text-gray-400 hidden md:inline-block text-sm md:text-xl ">
-            2,390485,34 reviewed
+          <div class="text-gray-700 hidden md:inline-block text-sm md:text-xl ">
+            <span class=" font-normal mr-4 ">2,390485,34</span> reviews
           </div>
         </div>
       </div>

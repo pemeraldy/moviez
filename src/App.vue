@@ -3,7 +3,6 @@
     <!-- navigation -->
     <app-header />
     <router-view />
-
     <Footer class="self-end" />
   </div>
 </template>

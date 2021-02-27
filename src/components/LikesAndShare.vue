@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  //   props: ["collectionId"],
+  // props: ["collectionId"],
 };
 </script>
 

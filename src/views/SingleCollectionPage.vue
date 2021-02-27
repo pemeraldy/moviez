@@ -29,9 +29,9 @@
               </template>
               <template v-slot:content>
                 <div class="flex flex-col justify-between">
-                  <h1 class="font-bold">Movie Name asknclknalcnkas</h1>
+                  <h1 class="font-bold">Movie Name</h1>
                   <p class="mb-4 font-sans text-gray-400">2019</p>
-                  <p class="text-sm">3k like . <span>24 days ago</span></p>
+                  <p class="text-sm">3k likes . <span>24 days ago</span></p>
                 </div>
               </template>
               <!-- </router-link> -->
